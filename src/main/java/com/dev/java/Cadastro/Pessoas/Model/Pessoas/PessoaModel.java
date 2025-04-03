@@ -1,8 +1,10 @@
-package com.dev.java.Cadastro.Pessoas.Model;
+package com.dev.java.Cadastro.Pessoas.Model.Pessoas;
 
+import com.dev.java.Cadastro.Pessoas.Model.Missoes.MissoesModel;
 import jakarta.persistence.*;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -14,7 +16,9 @@ public class PessoaModel {
     private String nome;
     private String email;
     private int idade;
-
+    @ManyToOne()
+    @JoinColumn(name = "missoes_id")
+    private  MissoesModel missoes;
     public  PessoaModel (){
 
     }
